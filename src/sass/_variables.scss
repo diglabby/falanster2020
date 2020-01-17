@@ -1,0 +1,94 @@
+/** == Kandinsky-specific widgets (_widgetsn.scss) == */
+// Support for some core widgets in general widget area and in footer
+
+//Fonts
+$body:		"SourceSansPro", Arial, sans-serif !default;
+$heading:	"Exo2", Arial, sans-serif !default;
+$mono:		"Lucida Sans Typewriter", "Lucida Console", Monaco, monospace !default;
+
+
+//Break points
+$one:					480px !default; //small
+$two:					800px !default; //medium
+$three:					1104px !default; //large
+
+
+//Page layout
+$full_cont:				1104px !default;
+$page_cont:				720px !default;
+$col:					48px !default;
+$gut:					48px !default;
+
+
+//Baseline
+$base:					26px !default;
+$inpage-margin-base:	26px !default; 
+
+
+//WP adminbar sizes
+$adminbar_large_screen: 32px;
+$adminbar_small_screen: 46px;
+
+
+//Header element sizes 
+$height_gap : 34px; 
+
+$logo_small_h : 42px; //size of logo icon for mobile version
+$logo_small_w : 42px; 
+
+$logo_full_w : 66px; //size of logo icon for desktop version
+$logo_full_h : 66px;
+
+$mobile_height : $logo_small_h + $height_gap; //full header height on mobile
+$full_height   : $logo_full_h + $height_gap; //full header height on desktop
+
+
+/** Colors **/
+
+//Color sheme
+//uses CSS variables from theme settings
+
+$color-main:                var(--knd-color-main) !default; //main accent color
+$color-main-dark:           var(--knd-color-main-dark) !default; //darker variant
+
+$color-second:              var(--knd-color-second) !default; //complimentary color
+$color-second-dark:         var(--knd-color-second-dark) !default; //darker variant
+
+$color-third: 		        var(--knd-color-third) !default; //dark color in theme
+$color-third-dark: 	        var(--knd-color-third-dark) !default; //darker variant
+
+$color-page-bg:             var(--knd-page-bg-color) !default; //main bg color
+$color-page-bg-dark:        var(--knd-page-bg-color-dark) !default; //for borders
+
+$color-text:                var(--knd-page-text-color) !default; //main page text
+$color-text-light:          var(--knd-page-text-color-light) !default; //text lighter than main one
+
+$color-text-contrast:       var(--knd-text1-color) !default; //contast text for inverse situations
+
+$color-text-accent1:        var(--knd-text2-color) !default; //color accent for Dubrovino
+$color-text-accent1-dark:   var(--knd-text2-color-dark) !default;
+
+$color-text-accent2:        var(--knd-text3-color) !default; //color accent for Dubrovino
+$color-text-accent2-dark:   var(--knd-text3-color-dark) !default;
+
+
+
+//Scheme independent colors
+$color-white:           #ffffff; // intentionally white
+$color-black:           #000000; // intentionally black
+$color-gray-light:      #eeeeee; // light gray for backgrounds and shadows
+
+$color-error:           #ED1C24; // error messages
+$color-ok :             #1DB318; // ok messages
+
+
+
+
+
+
+
+
+
+
+
+
