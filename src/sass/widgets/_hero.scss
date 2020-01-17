@@ -1,0 +1,102 @@
+/** == Hero image at home (_hero.scss) == */
+// Hero image seaction at homepage
+
+.hero-section {
+    background-color: $color-page-bg-dark;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    position: relative;
+
+    &:after {
+        content: '';
+        display: block;
+        width: 100%;
+        height: 100%;
+        z-index: 3;
+        position: absolute;
+        top: 0;
+        left: 0;
+        background: -moz-linear-gradient(top, rgba(0,0,0,0) 10%, rgba(0,0,0,.8) 100%); 
+        background: -webkit-linear-gradient(top, rgba(0,0,0,0) 10%,rgba(0,0,0,.8) 100%); 
+        background: linear-gradient(to bottom, rgba(0,0,0,0) 10%,rgba(0,0,0,.8) 100%); 
+    }
+
+    .container {
+        position: relative;
+        z-index: 10;
+    }
+
+    .hero-content {
+        //set height for whole block
+        padding-bottom: $gut;
+        height: calc(100vh - 77px);
+        min-height: 240px;
+
+        //set width
+        width: 100%;
+
+        @include for(small-screens) { 
+            padding-bottom: 5vh;
+
+            .hero-text {
+                margin-top: 5vh;
+            }
+
+            .hero-button {
+                margin-top: 5vh;
+            }
+        }
+
+        @include for(medium-screens) {
+            width: 60%;
+            padding-bottom: 10vh;
+            height: calc(100vh - 101px);
+
+            .hero-text {
+                margin-top: $gut/2;
+            }
+
+            .hero-button {
+                margin-top: $gut;
+            }
+        }
+
+        @include for(large-screens) {
+            width: 50%;
+            padding-bottom: 15vh;
+        }
+
+        @media screen and (min-width: $three) and (min-height: 950px){ 
+            height: 580px;
+            padding-bottom: 100px;
+        }
+
+        //push elements to bottom
+        display: flex;
+        flex-flow: column nowrap;
+        justify-content: flex-end;
+        align-items: flex-start;
+    }
+
+}
+
+
+.hero-title {
+    @include knd-head-large-text();
+    color: $color-white;
+}
+
+.hero-text {
+    @include knd-card-text();
+    color: $color-white;
+    margin-top: $gut/2;
+}
+
+.hero-button {
+    @include button();
+    margin-top: $gut;
+}
+
+

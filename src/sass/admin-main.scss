@@ -1,0 +1,319 @@
+//Custom styles for admin
+
+//inits
+@import "bourbon";
+
+/* columns */
+.admin-tmb {
+	width: 90%;
+	max-width: 54px;
+	
+	img {
+	max-width: 100%;
+	height: auto; }
+}
+
+.wp-list-table .column-author,
+.wp-list-table .column-id, 
+.wp-list-table .column-thumbnail,
+.wp-list-table .column-menu_order{
+	width: 6%;
+}
+
+.wp-list-table .column-attack_date,
+.wp-list-table .column-event_date {
+	width: 12.5%;
+}
+
+/*  dashboard */
+#itv-dashboard-card {
+	margin-bottom: 40px;
+	
+	.itv-logo {
+		width: 160px;		
+		height: 63px;
+		margin-left: 9px;
+		margin-bottom: 9px;
+		
+		img {
+			max-width: 100%;
+			height: auto; 
+		}
+	}
+}
+
+#rdc-support-card {
+	.tree-logo {
+		width: 150px;
+		height: 80px;
+		margin-left: 9px;
+		margin-bottom: 9px;
+	}
+}
+
+.rdc-dashboard {
+	
+	.cols {
+		@include clearfix;
+	}
+	
+	.col-logo {
+		float: left;
+		width: 50%;
+		
+		a { display: block; }
+		
+		img {
+			max-width: 100%;
+			height: auto; 
+		}
+	}
+	
+	.col-btn {
+		float: right;
+		width: 50%;
+		text-align: right;
+		padding-top: 5px;
+		a {
+			margin-right: 5px;
+		}
+	}
+}
+
+.knd-dashboard .knd-logo a img {
+    width: 100%;
+}
+
+
+#wpadminbar #wp-admin-bar-wp-logo .ab-icon::before {
+	color: #01E21A;
+}
+
+.tst-error {
+	border: 1px solid #DD3D36;
+	border-left-width: 5px;
+	padding: 8px;
+	color: #DD3D36;
+}
+
+.cmb-repeat-group-wrap .cmb2-wrap > .cmb-field-list > .cmb-row,
+.postbox-container .cmb2-wrap > .cmb-field-list > .cmb-row {
+	padding: 0.5em 0;
+	margin: 0;
+}
+
+
+input.regular-text {
+	width: 90%;
+}
+
+.cmb2-wrap select {
+	min-width: 50%;
+}
+
+.cmb2-wrap .cmb-td textarea {
+	width: 100%;
+}
+
+
+/* NF */
+#post-body-content .nf-field-settings {
+	span.description {
+		display: block;
+		font-size: 12px;
+		margin-bottom: 0;
+	}
+	.description-thin {
+		width: 100%;
+	}
+}
+
+#post-body-content .ninja-forms-field-list div[id *="show_desc"],
+#post-body-content .ninja-forms-field-list div[id *="label_pos"] {
+	display: none;
+}
+
+div [id *="ninja_forms_metabox"] .item-edit.metabox-item-edit {	
+	color: rgba(255,255,255, 0);
+	&:before {
+		color: #a0a5aa;
+	}
+}
+
+.knd-message {
+  overflow: hidden;
+  position: relative;
+  border-left-color: #2ea2cc !important;
+}
+.knd-message a.button-primary,
+.knd-message a.button-secondary {
+  text-decoration: none !important;
+}
+.knd-message a.knd-message-close {
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 10px 15px 10px 21px;
+  font-size: 13px;
+  line-height: 1.23076923;
+  text-decoration: none;
+}
+.knd-message a.knd-message-close:before {
+  position: absolute;
+  top: 8px;
+  left: 0;
+  -webkit-transition: all .1s ease-in-out;
+  transition: all .1s ease-in-out;
+}
+
+.knd-dashboard {
+
+    h3#knd-metabox-subtitle {
+        font-weight: 600;
+        font-size: 14px;
+    }
+
+    .knd-metabox-line .action {
+        display: flex;
+        padding: 0 8px;
+        margin: 16px 0;
+        flex-grow: 0;
+        align-items: center;
+
+        .dashicons {
+            margin-right: 4px;
+        }
+    }
+}
+
+#wpadminbar #wp-admin-bar-kandinsky-main {
+    
+    a {
+        display:inline;
+    }
+    
+    .knd-adminbar-notif {
+        border-radius: 50%;
+        color: #fff;
+        display: inline;
+        padding: 1px 7px 1px 6px !important;
+    }
+    
+}
+
+.wplink-autocomplete {
+    z-index: 500510 !important; /* originally 100110, but z-index of .wp-full-overlay is 500000 */
+}
+#wp-link-backdrop {
+    z-index: 500550 !important; /* originally 100100, but z-index of .wp-full-overlay is 500000 */
+}
+#wp-link-wrap {
+    z-index: 500555 !important; /* originally 100105, but z-index of .wp-full-overlay is 500000 */
+}
+
+.widget-inside {
+    z-index: 2;
+}
+
+li[id^="customize-control-widget_knd_cta-"] {
+    .widget-content {
+        min-height: none;
+        height: 100px;
+    }
+}
+
+#adminmenu {
+    .toplevel_page_remove-kandinsky-theme, 
+    .toplevel_page_update-kandinsky-theme {
+        display:none;
+    }
+}
+
+div.knd-metabox-line {
+    a[href$="?page=remove-kandinsky-theme"] {
+        color: #d54e21;
+    }
+}
+
+li#wp-admin-bar-remove-theme {
+    a {
+        background: #d54e21;
+        
+        &:hover,
+        &:active {
+            background: #d54e21;
+        }
+    }
+    
+}
+
+#adminmenu {
+    ul.wp-submenu {
+        li {
+            a[href$="?page=remove-kandinsky-theme"] {
+            
+                background: #d54e21;
+                
+                &:hover,
+                &:active {
+                    background: #d54e21;
+                }
+                
+            }
+        }
+    }
+}
+
+.knd-confirm-remove-theme {
+    input.button-primary {
+        margin-right: 20px;
+    }
+}
+
+.knd-remove-my-content-control {
+    padding-bottom: 20px;
+}
+
+.knd-updated-successfully {
+    font-weight: bold;
+    font-size: 1.5em;
+}
+
+#knd-update-theme {
+    width: 280px;
+    display:inline-block;
+    text-align:center;
+} 
+
+.knd-spinner-update-button {
+    
+    @extend #knd-update-theme;
+    
+    padding-top: 3px;
+    
+    img {
+        height: 18px;
+    }
+}
+
+.knd-updating-theme-steps {
+    
+    p {
+        float:none;
+        clear:both;
+        width: 400px;
+    }
+    
+    .dashicons {
+        margin-left: 20px;
+        float:right;
+    }
+    
+    .dashicons-warning {
+        color: #ff3333;
+    }
+    
+    .dashicons-yes {
+        color: #47d147;
+    }
+}

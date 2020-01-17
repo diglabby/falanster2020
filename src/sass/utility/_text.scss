@@ -1,0 +1,369 @@
+/** == Texts (_text.scss) == */
+// Helpers, utilities and styles for text elements 
+
+
+/* Screen-reader only text */
+.screen-reader-text {
+	@include screen-reader();
+}
+
+/* text alignment */
+.text-left   {
+	text-align: left; 
+}
+
+.text-right  {
+	text-align: right; 
+}
+
+.text-center {
+	text-align: center; 
+}
+
+
+/* selections */
+a:link {
+	-webkit-tap-highlight-color: $color-main-dark;
+	-webkit-tap-highlight-color : $color-main-dark; 
+}
+
+body:not(#tinymce) ::-webkit-selection {
+	opacity: 1;
+	background : $color-main-dark;
+	color : $color-white;
+	text-shadow : none; 
+}
+
+body:not(#tinymce) ::-moz-selection {
+	opacity: 1;
+	background : $color-main-dark;
+	color : $color-white;
+	text-shadow : none; 
+}
+
+body:not(#tinymce) ::selection {
+	opacity: 1;
+	background : $color-main-dark;
+	color : $color-white;
+	text-shadow : none; 
+}
+
+
+
+/** Post content elements  **/
+
+// We wrap them into mixin to apply easily to the_content-like blocks
+// but isolate front other general text styles
+// we don't want them affect the elements outsite the_content-like blocks
+
+@mixin the-content {
+
+	a { @include link-in-content(); }
+
+	//headings
+	h2, h3, h4, h5, h6 {
+		margin: $inpage-margin-base*1.2 0 $inpage-margin-base*.65;
+
+		&:first-child { margin-top: 0; }
+		&:last-child { margin-bottom: 0; }
+
+		color: $color-text;
+		strong, b { font-weight: normal; }
+	}
+
+	h2, h3 {
+		@include knd-head-exlarge-text();
+		color: $color-text;
+	}
+
+	h4 {
+		@include knd-body-title-text();
+		color: $color-text;
+	}
+
+	h5 {
+		@include knd-head-tiny-text();
+	}
+
+	h6 {
+		font-size: 1.2rem;
+		font-weight: 600; 
+	}
+
+
+	strong, b {
+		color: $color-text;
+	}
+
+	em {
+		font-style: italic;
+		line-height: 1.5;
+	}
+
+	ins {
+		text-decoration: none;
+		display: inline-block;
+		background: #E7F3FF;
+		padding: 0 8px;
+	}
+
+	h2 + h3, h2 + h4, h2 + h5, h2 + h6,
+	h3 + h4, h3 + h5, h3 + h6,
+	h4 + h5, h4 + h6,
+	h5 + h6 {
+		margin-top: $inpage-margin-base / 2;
+	}
+
+	//texts
+	p, iframe, blockquote {
+		margin-bottom: $inpage-margin-base;
+		&:last-child { margin-bottom: 0; }
+	}
+
+	figure {
+		margin: $inpage-margin-base 0;
+		&:last-child { margin-bottom: 0; }
+		&:first-child { margin-top: 0; }
+	}
+
+
+	// Lists
+	ul {
+		margin: $inpage-margin-base 0 $inpage-margin-base 1.5em;
+
+		li {
+			position: relative;
+			padding-left: 20px;
+
+			&:before {
+				content: '–';
+				display: inline-block;
+				line-height: inherit;
+				position: absolute;
+				left: 0;
+				top: 0;
+			}
+
+			li {
+				padding-left: 0;
+				break-inside: avoid;
+				&:before { display: none; }
+			}
+		}
+
+		&:first-child {	margin-top: 0;	}
+	}
+
+	ul ul { list-style: circle; }
+	ul ul ul { list-style: square; }
+
+	ol {
+	   list-style: decimal;
+	   margin: $inpage-margin-base 0 $inpage-margin-base 1.5em;
+	   &:first-child {	margin-top: 0;	}
+	}
+
+	ol ol { list-style: lower-alpha; }
+	ol ol ol { list-style: lower-roman; }
+
+	ul ul,
+	ul ol,
+	ol ul,
+	ol ol {
+	   margin-bottom: 0;
+	   
+	   &:first-child { margin-top: $inpage-margin-base/2;  }
+	}
+	
+	li {
+		margin-bottom: $inpage-margin-base/2;
+		&:last-child { margin-bottom: 0; }
+	}
+
+	ul + p,
+	ol + p { margin-top:  $inpage-margin-base }
+
+	blockquote {
+	    font-style: italic;
+	    position: relative;
+	    padding-left: 34px;
+	    margin-top: $inpage-margin-base*2;
+
+	    &:before {
+	        content: '“';
+	        display: inline-block;
+	        font-size: 70px;
+	        line-height: 1;
+	        position: absolute;
+	        left: -12px;
+	        top: -12px;
+	        color: $color-main;
+	    }
+
+	    &:first-child { margin-top: 0; }
+	    &:last-child { margin-bottom: 0; }
+	}
+
+	pre {
+		margin-bottom: $inpage-margin-base;
+		&:last-child { margin-bottom: 0; }
+		font-family: $mono;
+		font-size: 0.8em;
+		line-height: 1.75;
+	}
+
+	//image caption
+	.wp-caption {
+		max-width: 100%;
+		margin-bottom: $inpage-margin-base;
+
+		&.aligncenter {
+			margin-left: auto;
+			margin-right: auto;
+			max-width: 100%;
+		}
+
+		@include for(small-screens) {
+			&.alignleft {
+				float: left;
+				margin: 0 $gut 10px 0;
+				max-width: 50%;
+			}
+
+			&.alignright {
+				float: right;
+				margin: 0 0 10px $gut;
+				max-width: 50%;
+			}
+		}
+
+		img {
+			max-width: 100%;
+			height: auto;
+		}
+	}
+
+	.video-caption {
+		@include caption-text();
+		margin-top: -8px;
+		margin-bottom: $inpage-margin-base;
+	}
+
+	.wp-caption-text {
+		@include caption-text();
+		margin-top: $gut/4;
+	}
+
+	p+video-caption {
+		margin-top: 0;
+	}
+
+	//image in text
+	a[href].alignleft {
+		display: block;
+		margin-bottom: $inpage-margin-base;
+
+		@include for(small-screens) {
+			float: left;
+			margin: 0 $gut 10px 0;
+			max-width: 50%;
+		}
+
+		img {
+			max-width: 100%;
+			height: auto;
+		}
+	}
+
+	a[href].alignright {
+		display: block;
+		margin-bottom: $inpage-margin-base;
+
+		@include for(small-screens) {
+			float: right;
+			margin: 0 0 10px $gut;
+			max-width: 50%;
+		}
+
+		img {
+			max-width: 100%;
+			height: auto;
+		}
+	}
+
+	img.alignleft,
+	img[align ="left"] {
+		display: block;
+		margin-bottom: $inpage-margin-base;
+
+		@include for(small-screens) {
+			float: left;
+			margin: 0 $gut 10px 0;
+			max-width: 50%;
+			height: auto;
+		}
+	}
+
+	
+	img.alignright,
+	img[align ="right"] {
+		display: block;
+		margin-bottom: $inpage-margin-base;
+
+		@include for(small-screens) {
+			float: right;
+			margin: 0 0 10px $gut;
+			max-width: 50%;
+			height: auto;
+		}
+	}
+
+	//pre
+	pre, code {
+		@include knd-body-text();
+		color: $color-text;
+	}
+}
+
+.the-content  {
+	@include the-content();
+}
+
+
+/* Default WP Galleries */
+.the-content .gallery,
+.gallery {
+	margin-top: $inpage-margin-base;
+	margin-bottom: $inpage-margin-base;
+	margin-right: -6px;
+	margin-left: -6px; 
+
+	display: flex;
+	flex-flow: row wrap;
+	justify-content: flex-start;
+	align-items: flex-start;
+
+	.gallery-item {
+		padding: 6px;
+		margin: 0;
+		flex: 1 1 auto;
+
+		.wp-caption-text { display: none; }
+
+		a {
+			display: block;
+			border: none;
+			outline: none;
+			text-decoration: none;
+		}
+
+		img {
+			width: 100%;
+			height: auto;
+		}
+	}
+}
+
+@for $i from 1 through 9 {
+  .gallery-columns-#{$i} .gallery-item { width: 100% / $i; }
+}
