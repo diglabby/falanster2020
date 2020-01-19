@@ -301,7 +301,10 @@ function knd_get_social_media_supported() {
 			'description' => esc_html__( 'E.g., https://tlgrm.ru/channels/@your-organization-page', 'knd' ) ), 
 		'youtube' => array( 
 			'label' => esc_html__( 'YouTube', 'knd' ), 
-			'description' => esc_html__( 'E.g., https://youtube.com/channel/your-organization-channel', 'knd' ) ) );
+			'description' => esc_html__( 'E.g., https://youtube.com/channel/your-organization-channel', 'knd' ) ),
+        'github' => array(
+            'label' => esc_html__( 'GitHub', 'knd' ),
+            'description' => esc_html__( 'E.g., github link', 'knd' ) ) );
 }
 
 add_action( 'after_switch_theme', 'knd_after_theme_activation' );
