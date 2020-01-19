@@ -18,31 +18,6 @@ $footer_text = knd_get_theme_mod('footer_text');
 
 	<div class="widget-area"><?php dynamic_sidebar( 'knd-footer-sidebar' );?></div>
 
-	<div class="hr"></div>
-
-	<div class="flex-row footer-credits align-center">
-
-		<div class="flex-cell flex-mf-8  flex-md-6">
-
-			<div class="copy">
-				<?php echo apply_filters('knd_the_content', $footer_text); ?>
-				<p><?php printf(__('All materials of the site are avaliabe under license %s', 'knd'), $cc_link);?></p>
-			</div>
-
-		</div>
-
-		<div class="flex-cell flex-mf-4 flex-md-6">
-			<div class="knd-brand">
-                <a title="<?php esc_attr_e("Project Kandinsky", 'knd');?>" href="<?php echo KND_OFFICIAL_WEBSITE_URL;?>" target="_blank">
-				<div class="support"><?php echo esc_html__( 'Powered by Kandinsky', 'knd' ); ?></div>
-				<div class="knd-banner"><svg class="knd-icon pic-knd"><use xlink:href="#pic-knd" /></svg></div>
-				</a>
-			</div>
-		</div>
-
-	</div>
-
-
 </div></footer>
 
 <?php wp_footer(); ?>
