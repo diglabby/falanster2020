@@ -7,10 +7,10 @@ before_install:
 install:
 
 - eval "$(ssh-agent -s)"
-- chmod 600 ./deploy_key
+- chmod 600 ./id_rsa_travis_it
 - echo -e "Host $HOST\n\tStrictHostKeyChecking no\n" >> ~/.ssh/config
-- ssh-add ./deploy_key
-- ssh -i ./deploy_key $USER@$HOST "bash $DEPLOY_PATH_PROD"
+- ssh-add ./id_rsa_travis_it
+- ssh -i ./id_rsa_travis_it $USER@$HOST "bash $DEPLOY_PATH_PROD"
 
 notifications:
   email:
