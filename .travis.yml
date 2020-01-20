@@ -8,9 +8,7 @@ addons:
         
   
 install:
-  - sshpass -p $PASS scp -o stricthostkeychecking=no -P $PORT package.tgz $USER@$HOST:$DEPLOY_PATH_PROD
   - sshpass -p $PASS ssh -o stricthostkeychecking=no -p $PORT $USER@$HOST $DEPLOY_PATH_PROD/deploy.sh
-  - sshpass -p $PASS scp -o stricthostkeychecking=no -P $PORT package.tgz $USER@$HOST:$DEPLOY_PATH_TEST
   - sshpass -p $PASS ssh -o stricthostkeychecking=no -p $PORT $USER@$HOST $DEPLOY_PATH_TEST/deploy.sh
 
   
