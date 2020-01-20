@@ -1,15 +1,18 @@
 sudo: required
-addons:
-  apt:
-    packages:
-    - sshpass
+
+before_install:
+- openssl aes-256-cbc -K $encrypted_0d8df11c4167_key -iv $encrypted_0d8df11c4167_iv
+  -in ./deploy_key -out id_rsa_travis_it -d
+  
 install:
-- sshpass -p $PASS ssh -o stricthostkeychecking=no -p $PORT $USER@$HOST $DEPLOY_PATH_PROD/deploy.sh
-- sshpass -p $PASS ssh -o stricthostkeychecking=no -p $PORT $USER@$HOST $DEPLOY_PATH_TEST/deploy.sh
+
+- eval "$(ssh-agent -s)"
+- chmod 600 ./deploy_key
+- echo -e "Host $HOST\n\tStrictHostKeyChecking no\n" >> ~/.ssh/config
+- ssh-add ./deploy_key
+- ssh -i ./deploy_key $USER@$HOST "bash $DEPLOY_PATH_PROD"
+
 notifications:
   email:
     on_success: never
     on_failure: always
-before_install:
-- openssl aes-256-cbc -K $encrypted_0d8df11c4167_key -iv $encrypted_0d8df11c4167_iv
-  -in ./deploy_key -out id_rsa_travis_it -d
