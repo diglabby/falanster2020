@@ -1,18 +1,15 @@
 sudo: required
-
-
 addons:
   apt:
     packages:
-        - sshpass        
-        
-  
+    - sshpass
 install:
-  - sshpass -p $PASS ssh -o stricthostkeychecking=no -p $PORT $USER@$HOST $DEPLOY_PATH_PROD/deploy.sh
-  - sshpass -p $PASS ssh -o stricthostkeychecking=no -p $PORT $USER@$HOST $DEPLOY_PATH_TEST/deploy.sh
-
-  
+- sshpass -p $PASS ssh -o stricthostkeychecking=no -p $PORT $USER@$HOST $DEPLOY_PATH_PROD/deploy.sh
+- sshpass -p $PASS ssh -o stricthostkeychecking=no -p $PORT $USER@$HOST $DEPLOY_PATH_TEST/deploy.sh
 notifications:
   email:
     on_success: never
-    on_failure: always  
+    on_failure: always
+before_install:
+- openssl aes-256-cbc -K $encrypted_0d8df11c4167_key -iv $encrypted_0d8df11c4167_iv
+  -in ./deploy_key -out id_rsa_travis_it -d
