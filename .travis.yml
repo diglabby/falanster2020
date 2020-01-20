@@ -10,7 +10,7 @@ install:
 - chmod 600 ./id_rsa_travis_it
 - echo -e "Host $HOST\n\tStrictHostKeyChecking no\n" >> ~/.ssh/config
 - ssh-add ./id_rsa_travis_it
-- ssh -i ./id_rsa_travis_it $USER@$HOST -p $PORT "bash $DEPLOY_PATH_PROD"
+- ssh -i ./id_rsa_travis_it $USER_TEST@$HOST -p $PORT "bash $DEPLOY_PATH_TEST"
 
 notifications:
   email:
