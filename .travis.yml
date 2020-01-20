@@ -1,0 +1,24 @@
+sudo: required
+
+
+addons:
+  apt:
+    packages:
+        - sshpass        
+        
+  
+install:
+  - shopt -s extglob
+  - mkdir build
+  - mv dist/* build
+  - tar -czf package.tgz build
+  - sshpass -p $PASS scp -o stricthostkeychecking=no -P $PORT package.tgz $USER@$HOST:$DEPLOY_PATH_PROD
+  - sshpass -p $PASS ssh -o stricthostkeychecking=no -p $PORT $USER@$HOST $DEPLOY_PATH_PROD/deploy.sh
+  - sshpass -p $PASS scp -o stricthostkeychecking=no -P $PORT package.tgz $USER@$HOST:$DEPLOY_PATH_TEST
+  - sshpass -p $PASS ssh -o stricthostkeychecking=no -p $PORT $USER@$HOST $DEPLOY_PATH_TEST/deploy.sh
+
+  
+notifications:
+  email:
+    on_success: never
+    on_failure: always  
